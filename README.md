@@ -25,7 +25,7 @@ A place to document my learning from, and my attempts at the challenges from, th
 
 
 ### Chapter Two
-- OOP lets you extend a program without having to touch previously tested, working code
+- Object-Oriented Programming (OOP) lets you extend a program without having to touch previously tested, working code
 - All Java code is defined in a **class**
 - A class describes how to make an object of that class type. A class is like a blueprint
 - An object can take care of itself, you don't have to know or care *how* the object does it
