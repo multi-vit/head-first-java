@@ -1,4 +1,4 @@
-package ch2;
+package ch2.DrumKitCodeMagnets;
 
 public class DrumKitTestDrive {
     public static void main(String[] args) {
