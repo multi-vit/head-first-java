@@ -2,8 +2,10 @@ package ch2.EchoPoolPuzzle;
 
 public class EchoTestDrive {
     public static void main(String[] args) {
+        // This is the solution for the bonus part (printing out 24 instead of 10)
+        // Original solution commented below
         Echo e1 = new Echo();
-        Echo e2 = new Echo();
+        Echo e2 = e1;
         int x = 0;
         while (x < 4) {
             e1.hello();
@@ -19,3 +21,22 @@ public class EchoTestDrive {
         System.out.println(e2.count);
     }
 }
+
+/*
+Code for completing it when output should be 10
+        Echo e1 = new Echo();
+        Echo e2 = new Echo();
+        int x = 0;
+        while (x < 4) {
+            e1.hello();
+            e1.count = e1.count + 1;
+            if(x > 0) {
+                e2.count = e2.count + 1;
+            }
+            if(x > 1) {
+                e2.count = e2.count + e1.count;
+            }
+            x = x + 1;
+        }
+        System.out.println(e2.count);
+ */
