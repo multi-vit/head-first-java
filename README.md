@@ -36,3 +36,5 @@ A place to document my learning from, and my attempts at the challenges from, th
 - When you create a class, you may also want to create a separate test class that you'll use to create objects of your new class type
 - A class can **inherit** instance variables and methods from a more abstract **superclass**
 - At runtime, a Java program is nothing more than objects "talking" to other objects
+- We are not talking about encapsulation until Chapter Four
+- We are using main to test drive code right now, that will also change in Chapter Three
