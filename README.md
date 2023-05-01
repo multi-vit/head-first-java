@@ -41,5 +41,28 @@ A place to document my learning from, and my attempts at the challenges from, th
 ### Chapter Three - Know Your Variables: Primitives and References
 - Variables can store two types of things: **primitives** and **object references**
 - Variables must have a type and a name
+
+#### Primitives
+
 - Primitive types have a bit-depth - meaning maximum size. You must ensure the value can fit into the variable, otherwise you will get *spillage*
-- 
+
+| Type                         | Bit Depth      | Value Range               |
+|------------------------------|----------------|---------------------------|
+| **boolean and char**         |                |                           |
+| Boolean                      | (JVM-Specific) | *true* or *false*         |
+| Char                         | 16 bits        | 0 to 65535                |
+| **numeric (all are signed)** |                |                           |
+| **integer**                  |                |                           |
+| byte                         | 8 bits         | -128 to 127               |
+| short                        | 16 bits        | -32768 to 32767           |
+| int                          | 32 bits        | -2147483648 to 2147483647 |
+| long                         | 64 bits        | -huge to huge             |
+| **floating point**           |                |                           |
+| float                        | 32 bits        | varies                    |
+| double                       | 64 bits        | varies                    |
+
+- Some good rules for naming a class, method or variable (the official ones are less strict but these will keep you safe):
+  - It must start with a letter, underscore (_) or dollar sign ($). You can't start a name with a number
+  - After the first character, you can use numbers as well. Just don't start it with a number.
+  - It can be anything you like, subject to those two rules, just so long as it isn't one of Java's reserved words
+  - Reserved words include things like the primitive types (boolean, char etc.) and identifiers such as "public" or "static"
