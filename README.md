@@ -12,7 +12,7 @@ A place to document my learning from, and my attempts at the challenges from, th
 
 ## Chapter-Specific
 
-### Chapter One
+### Chapter One - Breaking the Surface: Dive In: A Quick Dip
 - Java is fast compared to most languages, but uses a lot of memory
 - Any new version of Java is always fully backwards-compatible
 - Java is a class-based, object-oriented language
@@ -23,8 +23,7 @@ A place to document my learning from, and my attempts at the challenges from, th
 - Everything begins with the public static void main (String[] args) {} method
 - Every statement **MUST** end in a semicolon!
 
-
-### Chapter Two
+### Chapter Two - A Trip to Objectville: Class and Objects
 - Object-Oriented Programming (OOP) lets you extend a program without having to touch previously tested, working code
 - All Java code is defined in a **class**
 - A class describes how to make an object of that class type. A class is like a blueprint
@@ -38,3 +37,9 @@ A place to document my learning from, and my attempts at the challenges from, th
 - At runtime, a Java program is nothing more than objects "talking" to other objects
 - We are not talking about encapsulation until Chapter Four
 - We are using main to test drive code right now, that will also change in Chapter Three
+
+### Chapter Three - Know Your Variables: Primitives and References
+- Variables can store two types of things: **primitives** and **object references**
+- Variables must have a type and a name
+- Primitive types have a bit-depth - meaning maximum size. You must ensure the value can fit into the variable, otherwise you will get *spillage*
+- 
