@@ -51,6 +51,8 @@ A place to document my learning from, and my attempts at the challenges from, th
 
 #### Primitives
 
+- Think of primitives like cups, they come in different shapes and sizes and are designed to hold different types (of
+  liquid)
 - Primitive types have a bit-depth - meaning maximum size. You must ensure the value can fit into the variable,
   otherwise you will get *spillage*
 
@@ -69,6 +71,8 @@ A place to document my learning from, and my attempts at the challenges from, th
 | float                        | 32 bits        | varies                    |
 | double                       | 64 bits        | varies                    |
 
+- The mnemonic I came up with to remember the 8 types of primitives are:
+  > I Love Care Bears Because Fluffy Dinosaurs Suck
 - With some number types, you have to specifically tell the compiler what you mean, or it might get confused between
   similar looking number types. You can use upper or lowercase:
 
@@ -84,3 +88,39 @@ float f = 32.5f;
     - It can be anything you like, subject to those two rules, just so long as it isn't one of Java's reserved words
     - Reserved words include things like the primitive types (boolean, char etc.) and identifiers such as "public" or "
       static"
+
+#### Objects
+
+- Objects live in one place only - the garbage-collectible heap!
+- There is no such things as an *object* variable (or spoon). There's only an object *reference* variable, which holds
+  something like a pointer - a way to get to the object.
+- Object reference variables are just like a remote control - you use it to get the object to do something (so it's a cup with a tv remote in!)
+- Once a reference variable has been declared, it can only reference an object of the same type as it already refers
+  to (so if your reference variables refers to a Dog, it can only refer to another Dog, not a Cat) - unless it's marked
+  *final* then it cannot be reprogrammed to **anything** else
+- If you assign a reference variable to another variable, both variables just point to the same object:
+- Once an object no longer has any reference variables pointing to it, it is eligible for **Garbage Collection**, as it
+  can never be accessed again
+- Example:
+
+```
+// 2 book objects are created on the heap
+Book b = new Book();
+Book c = new Book();
+// Either reference variable can reference another Book object as they are not marked final:
+b = c;
+// b and c now point to the same object on the heap
+// The book object that b originally pointed to is eligible for garbage collection
+```
+
+#### Arrays
+
+- Arrays are like a tray of cups!
+- Arrays give you fast random access by letting you use an index position to get to any element in the array
+- Every element inside an array is just a variable (primitive or reference)
+- Arrays are always objects, whether they're declared to holst primitives or object references
+- Once you've declared an array, you can't put anything in it except things that are of a comparable array type:
+  - You can't put a Cat object into a Dog array
+  - You can't put a `double` into an `int` array (spillage, remember?)
+  - You **can** put a `byte` into an `int` array however, because a `byte` will always fit into an `int` size cup!
+  - Don't worry, the compiler won't let you put the wrong thing in an array
