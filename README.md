@@ -94,7 +94,8 @@ float f = 32.5f;
 - Objects live in one place only - the garbage-collectible heap!
 - There is no such things as an *object* variable (or spoon). There's only an object *reference* variable, which holds
   something like a pointer - a way to get to the object.
-- Object reference variables are just like a remote control - you use it to get the object to do something (so it's a cup with a tv remote in!)
+- Object reference variables are just like a remote control - you use it to get the object to do something (so it's a
+  cup with a tv remote in!)
 - Once a reference variable has been declared, it can only reference an object of the same type as it already refers
   to (so if your reference variables refers to a Dog, it can only refer to another Dog, not a Cat) - unless it's marked
   *final* then it cannot be reprogrammed to **anything** else
@@ -120,7 +121,7 @@ b = c;
 - Every element inside an array is just a variable (primitive or reference)
 - Arrays are always objects, whether they're declared to holst primitives or object references
 - Once you've declared an array, you can't put anything in it except things that are of a comparable array type:
-  - You can't put a Cat object into a Dog array
-  - You can't put a `double` into an `int` array (spillage, remember?)
-  - You **can** put a `byte` into an `int` array however, because a `byte` will always fit into an `int` size cup!
-  - Don't worry, the compiler won't let you put the wrong thing in an array
+    - You can't put a Cat object into a Dog array
+    - You can't put a `double` into an `int` array (spillage, remember?)
+    - You **can** put a `byte` into an `int` array however, because a `byte` will always fit into an `int` size cup!
+    - Don't worry, the compiler won't let you put the wrong thing in an array
