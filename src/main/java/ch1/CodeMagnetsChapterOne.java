@@ -1,6 +1,6 @@
 package ch1;
 
-public class CodeMagnets {
+public class CodeMagnetsChapterOne {
     public static void main(String[] args) {
         int x = 3;
         while (x > 0) {
