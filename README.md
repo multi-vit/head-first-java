@@ -34,9 +34,8 @@ A place to document my learning from, and my attempts at the challenges from, th
 - A class describes how to make an object of that class type. A class is like a blueprint
 - An object can take care of itself, you don't have to know or care *how* the object does it
 - An object **knows** things and **does** things
-- Things an object knows about itself are called **instance variables**
-- They represent the *state* of an object
-- Things an object does are called **methods**. They represent the *behaviour* of an object
+- Things an object knows about itself are called **instance variables** - they represent the *state* of an object
+- Things an object does are called **methods** - they represent the *behaviour* of an object
 - When you create a class, you may also want to create a separate test class that you'll use to create objects of your
   new class type
 - A class can **inherit** instance variables and methods from a more abstract **superclass**
@@ -125,3 +124,34 @@ b = c;
     - You can't put a `double` into an `int` array (spillage, remember?)
     - You **can** put a `byte` into an `int` array however, because a `byte` will always fit into an `int` size cup!
     - Don't worry, the compiler won't let you put the wrong thing in an array
+
+### Chapter Four - How Objects Behave: Methods Use Instance Variables
+
+- A reminder that Classes define what an object knows (instance variables = state) and what an object does (methods =
+  behaviour)
+- State affects behaviour, behaviour affects state
+- Methods can behave differently based on the value of the instance variables - so objects of the same type can behave
+  differently
+- A method takes a **parameter(s)**
+- When calling methods, you are passing an **argument(s)** that becomes the parameter(s)
+- A parameter becomes a local variable inside the method
+- The number and type of values you pass in must match the order and type of the parameters declared by the method
+- As well as values, you can pass variables into a method, as long as the variable type matches the parameter type (
+  there are other things you can pass, but we're not there yet)
+- Java is *pass-by-value*, which is another way of saying pass-by-copy - it will copy the value. So if you pass a
+  variable in as an argument, the method works on the local variable that is copied, it doesn't affect the original
+  variable that was passed in:
+  ```
+  int x = 7;
+  void go(int z) {z = 0;}
+  foo.go(x);
+  // x and z are NOT connected
+  // The value of x doesn't change!
+  // The method can't change the bits that were in the calling variable x
+  ```
+- Methods can also *return* values - every method is declared with a return type, but until now we've made all of our
+  methods with a **void** return type, which means they don't give anything back
+- If you declare a method to return a value, you *must* return a value of the declared type! (or a value that is
+  *compatible* with the declared type - more on that in Ch 7 and 8)
+- Values passed in and out of methods can be implicitly promoted to a larger type or explicitly *cast* to a smaller
+  type (more on this in chapter 5)
