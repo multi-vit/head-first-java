@@ -1,6 +1,6 @@
 package ch1;
 
-public class PoolPuzzle {
+public class PoolPuzzleChapterOne {
     public static void main(String[] args) {
         int x = 0;
         while(x < 4){
