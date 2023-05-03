@@ -10,6 +10,7 @@ class BooksTestDrive {
         Books[] myBooks = new Books[3];
         int x = 0;
         // Need to initialise each variable in the book array as a new Book
+        // Was missing the next 3 lines
         myBooks[0] = new Books();
         myBooks[1] = new Books();
         myBooks[2] = new Books();
