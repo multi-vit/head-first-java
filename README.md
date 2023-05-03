@@ -155,3 +155,66 @@ b = c;
   *compatible* with the declared type - more on that in Ch 7 and 8)
 - Values passed in and out of methods can be implicitly promoted to a larger type or explicitly *cast* to a smaller
   type (more on this in chapter 5)
+
+#### Getters and Setters
+
+If you're being formal, you might prefer to call them *Accessors* and *Mutators*. But getters and setters fit a common
+Java naming convention:
+
+- A Getter's sole purpose in life is to send back, as a return value, the value of whatever instance variable it is
+  named after
+- Same principle for Setters, but its sole purpose is to set the value of said instance variable
+
+```java
+class ElectricGuitar {
+    String brand;
+    int numOfPickups;
+    boolean rockStarUsesIt;
+
+    String getBranch() {
+        return brand;
+    }
+
+    void setBrand(String aBrand) {
+        brand = aBrand;
+    }
+
+    int getNumOfPickups() {
+        return numOfPickups;
+    }
+
+    void setNumOfPickups(int num) {
+        numOfPickups = num;
+    }
+
+    boolean getRockStarUsesIt() {
+        return rockStarUsesIt;
+    }
+
+    void setRockStarUsesIt(boolean yesOrNo) {
+        rockStarUsesIt = yesOrNo;
+    }
+}
+```
+
+#### Encapsulation
+
+- Until this very moment, we've been committing one of the worst OO faux pas - exposing our data!
+- Exposed means reachable with the dot operator, as in: `myBackside.isExposed = true;`
+- In the hands of a bad actor (no, not Elijah Wood), a reference variable (remote control) is quite a dangerous weapon.
+  Because what's to prevent a flat cat?: `theCat.height = 0;`
+- When we create setter methods, we can restrict the level of change allowed:
+
+  ```
+  public void setHeight(int ht) {
+  // Guarantee height is at least 10
+    if(ht > 9){
+      height = ht;
+    }
+  }
+  ```
+
+- Use the `private` access modifier to hide data
+- Encapsulation *starter* rule of thumb (when you have more design and coding savvy in Java, you will probably do things
+  a little differently:
+    - Mark your instance variables **private** and provide **public** getters and setters for access control
