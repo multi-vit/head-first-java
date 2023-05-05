@@ -55,30 +55,30 @@ A place to document my learning from, and my attempts at the challenges from, th
 - Primitive types have a bit-depth - meaning maximum size. You must ensure the value can fit into the variable,
   otherwise you will get *spillage*
 
-| Type                         | Bit Depth      | Value Range               |
-|------------------------------|----------------|---------------------------|
-| **boolean and char**         |                |                           |
-| Boolean                      | (JVM-Specific) | *true* or *false*         |
-| Char                         | 16 bits        | 0 to 65535                |
-| **numeric (all are signed)** |                |                           |
-| **integer**                  |                |                           |
-| byte                         | 8 bits         | -128 to 127               |
-| short                        | 16 bits        | -32768 to 32767           |
-| int                          | 32 bits        | -2147483648 to 2147483647 |
-| long                         | 64 bits        | -huge to huge             |
-| **floating point**           |                |                           |
-| float                        | 32 bits        | varies                    |
-| double                       | 64 bits        | varies                    |
+  | Type                         | Bit Depth      | Value Range               |
+    |------------------------------|----------------|---------------------------|
+  | **boolean and char**         |                |                           |
+  | Boolean                      | (JVM-Specific) | *true* or *false*         |
+  | Char                         | 16 bits        | 0 to 65535                |
+  | **numeric (all are signed)** |                |                           |
+  | **integer**                  |                |                           |
+  | byte                         | 8 bits         | -128 to 127               |
+  | short                        | 16 bits        | -32768 to 32767           |
+  | int                          | 32 bits        | -2147483648 to 2147483647 |
+  | long                         | 64 bits        | -huge to huge             |
+  | **floating point**           |                |                           |
+  | float                        | 32 bits        | varies                    |
+  | double                       | 64 bits        | varies                    |
 
 - The mnemonic I came up with to remember the 8 types of primitives are:
   > I Love Care Bears Because Fluffy Dinosaurs Suck
 - With some number types, you have to specifically tell the compiler what you mean, or it might get confused between
   similar looking number types. You can use upper or lowercase:
 
-```
-long big = 3456789L;
-float f = 32.5f;
-```
+  ```
+  long big = 3456789L;
+  float f = 32.5f;
+  ```
 
 - Some good rules for naming a class, method or variable (the official ones are less strict but these will keep you
   safe):
@@ -103,15 +103,15 @@ float f = 32.5f;
   can never be accessed again
 - Example:
 
-```
-// 2 book objects are created on the heap
-Book b = new Book();
-Book c = new Book();
-// Either reference variable can reference another Book object as they are not marked final:
-b = c;
-// b and c now point to the same object on the heap
-// The book object that b originally pointed to is eligible for garbage collection
-```
+  ```
+  // 2 book objects are created on the heap
+  Book b = new Book();
+  Book c = new Book();
+  // Either reference variable can reference another Book object as they are not marked final:
+  b = c;
+  // b and c now point to the same object on the heap
+  // The book object that b originally pointed to is eligible for garbage collection
+  ```
 
 #### Arrays
 
@@ -153,6 +153,13 @@ b = c;
   methods with a **void** return type, which means they don't give anything back
 - If you declare a method to return a value, you *must* return a value of the declared type! (or a value that is
   *compatible* with the declared type - more on that in Ch 7 and 8)
+- Any place where a particular value can be used, a method call that returns that type can be used:
+  ```
+  // Instead of
+  int x = 3 + 24;
+  // You can say
+  int x = 3 + one.getSize();
+  ```
 - Values passed in and out of methods can be implicitly promoted to a larger type or explicitly *cast* to a smaller
   type (more on this in chapter 5)
 
@@ -214,7 +221,38 @@ class ElectricGuitar {
   }
   ```
 
-- Use the `private` access modifier to hide data
+- Use the `private` access modifier to hide data (you're familiar with `public` - we use it with every `main` method)
 - Encapsulation *starter* rule of thumb (when you have more design and coding savvy in Java, you will probably do things
   a little differently:
     - Mark your instance variables **private** and provide **public** getters and setters for access control
+
+#### Default Values
+
+- **Instance variables** always get a default value. This is why you don't have to intialise a variable when declaring
+  it:
+
+  | Type            | Default Value |
+  |-----------------|---------------|
+  | Integers        | 0             |
+  | Floating points | 0.0           |
+  | Booleans        | false         |
+  | References      | null          |
+
+- **Local variables** do NOT get a default value and MUST be initialised before use, otherwise the compiler will
+  complain:
+
+  ```java
+  class Foo {
+    public void go() {
+      int x; 
+      int z = x + 3; // Won't compile! 
+      //You can declare x without a value but as soo as you try to USE it, the compiler freaks out
+    }
+  }
+  ```
+
+- **Method parameters** will never be unitialised (because they will either contain a value, an intialised variable or a
+  variable with a default value)
+
+#### Comparing Variables
+
