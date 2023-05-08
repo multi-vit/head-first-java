@@ -12,7 +12,7 @@ int calcArea(int height,int width){
 int a = calcArea(7, 12); ✅ // 2 integers being passed in as expected
 
 short c = 7;
-calcArea(c, 15); ✅ // Short can be implicitly widened to an int
+calcArea(c, 15); ✅ // Short can be implicitly promoted to an int
 
 int d = calcArea(57); ❌ // Only 1 argument being passed when 2 are required
 
