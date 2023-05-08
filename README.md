@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-    |------------------------------|----------------|---------------------------|
+            |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-  |-----------------|---------------|
+          |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -256,3 +256,24 @@ class ElectricGuitar {
 
 #### Comparing Variables
 
+- As you'd expect, the equality operator is `==`
+- This is great for comparing primitives (it only compares the bits in two variables)
+- The `==` operator ignores all the extra zeroes on the left side (so types don't matter):
+  ```
+  int a = 3;
+  byte b = 3;
+  if ( a==b ) { // true }
+  ```
+- Also use `==` to check if two reference variables refer to a single object:
+
+  ```
+  Foo a = new Foo();
+  Foo b = new Foot();
+  Foo c = a;
+  if ( a == b ) {} // false
+  if ( a == c ) {} // true
+  if ( b == c ) {} // false
+  ```  
+
+- For objects, there is the `.equals()` method, but we will look at this in a later chapter (e.g. two different String
+  objects that both contain the characters "Fred")
