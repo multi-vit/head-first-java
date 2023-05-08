@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-            |------------------------------|----------------|---------------------------|
+              |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-          |-----------------|---------------|
+            |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -258,7 +258,7 @@ class ElectricGuitar {
 
 - As you'd expect, the equality operator is `==`
 - This is great for comparing primitives (it only compares the bits in two variables)
-- The `==` operator ignores all the extra zeroes on the left side (so types don't matter):
+- The `==` operator ignores all the extra zeroes on the left side (so types don't necessarily matter):
   ```
   int a = 3;
   byte b = 3;
