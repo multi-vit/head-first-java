@@ -5,6 +5,7 @@ package ch4.BeTheCompiler;
 // So needs changing from "void" to "String" as the return type
 // If that is fixed, output will be:
 // time: 1245
+/*
 public class Clock {
     String time;
 
@@ -26,3 +27,4 @@ class ClockTestDrive {
         System.out.println("time: " + tod);
     }
 }
+*/
