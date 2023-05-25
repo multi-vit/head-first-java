@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                        |------------------------------|----------------|---------------------------|
+                          |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                      |-----------------|---------------|
+                        |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -284,7 +284,7 @@ A good checklist for thinking about writing a Java class:
 
 - [ ] Figure out what the class is supposed to *do*
 - [ ] List the **instance variables** and **methods**
-- [ ] Write **prep code** for the methods - pseudo code to help focus on logic without the worry of syntax
+- [ ] Write **prep code** for the methods - pseudocode to help focus on logic without the worry of syntax
 - [ ] Write **test code** for the methods - a class or methods that will test the real code and validate that it's doing
   the right thing
 - [ ] **Implement** the class - the actual implementation, where we write real java code
