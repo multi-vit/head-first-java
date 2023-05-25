@@ -1,3 +1,12 @@
+# Prep Code
+
+Pseudocode to help focus on logic without the worry of syntax
+
+We are going to make a very simple version of battleships, that is one-sided only and features start up firms instead of
+ships!
+
+## SimpleStartUp Object
+
 | SimpleStartUp                      |
 |------------------------------------|
 | int [] locationCells               |
@@ -46,3 +55,42 @@ END METHOD
 
 ---
 
+## SimpleStartUpGame
+
+| SimpleStartUpGame     |
+|-----------------------|
+| SimpleStartUp object  |
+| int numOfGuesses<     |
+| boolean isAlive       |
+| int [] locations      |
+| --------------------- |
+| main (String [] args) |
+|                       |
+
+**DECLARE** an *int* to hold the number of user guesses. Call it **numOfGuesses** and **SET** it to 0
+**DECLARE** a boolean variable representing the state of the game, named isAlive. **SET** it to true.
+
+---
+
+**METHOD**: *public static void main(string [] args)*
+
+&nbsp; **MAKE** a SimpleStartUp instance, passing in the location cells  
+&nbsp; **COMPUTE** a random number between 0 and 4 that will be the starting cell location    
+&nbsp; **ASSIGN** the starting location and consecutive 2 numbers to locations array  
+&nbsp; **INVOKE** the setLocationCells() method on the SimpleStartUp instance
+> &nbsp; **REPEAT** while the SimpleStartUp is still alive:  
+> &nbsp; &nbsp; **GET** a guess from the user  
+> &nbsp; &nbsp; // **CHECK** the guess:  
+> &nbsp; &nbsp; &nbsp; **INVOKE** the *checkYourself()* method on the SimpleStartUp instance    
+> &nbsp; &nbsp; **INCREMENT** *numOfGuesses* variable  
+> &nbsp; &nbsp; // **CHECK** for Startup death:
+>> &nbsp; &nbsp; &nbsp; IF result is "kill":  
+> > &nbsp; &nbsp; &nbsp; &nbsp; **SET** *isAlive* to false (so we won't enter loop again)  
+> > &nbsp; &nbsp; &nbsp; &nbsp; **PRINT** the number of user guesses  
+> > &nbsp; &nbsp; &nbsp; END IF
+>
+> &nbsp; END REPEAT
+
+END METHOD
+
+---
