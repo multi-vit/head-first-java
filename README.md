@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                          |------------------------------|----------------|---------------------------|
+                            |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                        |-----------------|---------------|
+                          |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -291,4 +291,19 @@ A good checklist for thinking about writing a Java class:
 - [ ] **Test** the methods
 - [ ] **Debug** and **reimplement** as needed
 
-This is basically TDD (Test-Driven Development)
+This is basically TDD (Test-Driven Development)!
+
+- Your java program should start with a high-level design
+- Typically, you'll write three things when you create a new class:
+    - **prep code**
+    - **test code**
+    - **real (Java) code**
+- Prep code should describe *what* to do, not *how* to do it (Behaviour, not implementation)
+- Use the prep code to help design the test code
+- A class can have one superclass only
+- Write test code *before* you implement the methods
+- Choose *for* loops over *while* loops when you know how many times you want to repeat the loop code
+- The *enhanced for loop* is an easy way to loop over an array or collection
+- Use the *increment* operator (++) to add 1 to a variable
+- Use the *decrement* operator (--) to subtract 1 from a variable
+- Use *break* to leave a loop early (e.g. even if the boolean test condition is still true)
