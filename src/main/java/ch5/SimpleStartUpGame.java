@@ -30,5 +30,7 @@ public class SimpleStartUpGame {
             }
         }
     }
-
 }
+
+// There is a bug in here, you can enter the same "hit" number 3 times and win the game
+// We will fix it in the next chapter
