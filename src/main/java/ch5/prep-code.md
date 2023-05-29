@@ -5,9 +5,9 @@ Pseudocode to help focus on logic without the worry of syntax
 We are going to make a very simple version of battleships, that is one-sided only and features start up firms instead of
 ships!
 
-## SimpleStartUp Object
+## SimpleStartup Object
 
-| SimpleStartUp                      |
+| SimpleStartup                      |
 |------------------------------------|
 | int [] locationCells               |
 | int numOfHits                      |
@@ -55,11 +55,11 @@ END METHOD
 
 ---
 
-## SimpleStartUpGame
+## SimpleStartupGame
 
-| SimpleStartUpGame     |
+| SimpleStartupGame     |
 |-----------------------|
-| SimpleStartUp object  |
+| SimpleStartup object  |
 | int numOfGuesses<     |
 | boolean isAlive       |
 | int [] locations      |
@@ -74,14 +74,14 @@ END METHOD
 
 **METHOD**: *public static void main(string [] args)*
 
-&nbsp; **MAKE** a SimpleStartUp instance, passing in the location cells  
+&nbsp; **MAKE** a SimpleStartup instance, passing in the location cells  
 &nbsp; **COMPUTE** a random number between 0 and 4 that will be the starting cell location    
 &nbsp; **ASSIGN** the starting location and consecutive 2 numbers to locations array  
-&nbsp; **INVOKE** the setLocationCells() method on the SimpleStartUp instance
-> &nbsp; **REPEAT** while the SimpleStartUp is still alive:  
+&nbsp; **INVOKE** the setLocationCells() method on the SimpleStartup instance
+> &nbsp; **REPEAT** while the SimpleStartup is still alive:  
 > &nbsp; &nbsp; **GET** a guess from the user  
 > &nbsp; &nbsp; // **CHECK** the guess:  
-> &nbsp; &nbsp; &nbsp; **INVOKE** the *checkYourself()* method on the SimpleStartUp instance    
+> &nbsp; &nbsp; &nbsp; **INVOKE** the *checkYourself()* method on the SimpleStartup instance    
 > &nbsp; &nbsp; **INCREMENT** *numOfGuesses* variable  
 > &nbsp; &nbsp; // **CHECK** for Startup death:
 >> &nbsp; &nbsp; &nbsp; IF result is "kill":  

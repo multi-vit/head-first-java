@@ -1,4 +1,4 @@
-package ch6.SimpleStartUp;
+package ch6.SimpleStartup;
 
 import java.util.ArrayList;
 
