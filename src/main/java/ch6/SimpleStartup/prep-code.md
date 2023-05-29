@@ -2,13 +2,13 @@
 
 ## SimpleStartup Object
 
-| SimpleStartup                      |
-|------------------------------------|
-| int [] locationCells               |
-| int numOfHits                      |
-| ---------------------------------- |
-| String checkYourself(int guess)    |
-| void setLocationCells(int [] loc)  |
+| SimpleStartup                                 |
+|-----------------------------------------------|
+| ArrayList<Integer> locationCells              |
+| int numOfHits                                 |
+| ----------------------------------            |
+| String checkYourself(int guess)               |
+| void setLocationCells(ArrayList<Integer> loc) |
 
 **DECLARE** an *int array* to hold the location cells. Call it **locationCells**.  
 **DECLARE** an *int* to hold the number of hits. Call it **numOfHits** and **SET** it to 0
@@ -43,7 +43,7 @@ END METHOD
 
 ---
 
-**METHOD**: *void setLocationCells(int [] cellLocations)*  
+**METHOD**: *void setLocationCells(ArrayList<Integer> cellLocations)*  
 &nbsp; **GET** the cell locations as an *int array* parameter  
 &nbsp; **ASSIGN** the cell locations parameter to the cell locations instance variable  
 END METHOD
@@ -52,15 +52,15 @@ END METHOD
 
 ## SimpleStartupGame
 
-| SimpleStartupGame     |
-|-----------------------|
-| SimpleStartup object  |
-| int numOfGuesses<     |
-| boolean isAlive       |
-| int [] locations      |
-| --------------------- |
-| main (String [] args) |
-|                       |
+| SimpleStartupGame            |
+|------------------------------|
+| SimpleStartup object         |
+| int numOfGuesses<            |
+| boolean isAlive              |
+| ArrayList<Integer> locations |
+| ---------------------        |
+| main (String [] args)        |
+|                              |
 
 **DECLARE** an *int* to hold the number of user guesses. Call it **numOfGuesses** and **SET** it to 0
 **DECLARE** a boolean variable representing the state of the game, named isAlive. **SET** it to true.
