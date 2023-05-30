@@ -11,7 +11,7 @@ public class SimpleStartupGame {
         SimpleStartup game = new SimpleStartup();
         Scanner in = new Scanner(System.in);
         Random r = new Random();
-        int randomNumber = r.nextInt(4) + 1;
+        int randomNumber = r.nextInt(5) + 1;
         System.out.println("Random number is: " + randomNumber);
         for (int i = 0; i < locations.length; i++) {
             locations[i] = randomNumber;
