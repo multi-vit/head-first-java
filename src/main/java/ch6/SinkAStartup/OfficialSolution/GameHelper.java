@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+// This class is abstracted away from us and contains things we haven't yet learned
+
 public class GameHelper {
     static final int HORIZONTAL_INCREMENT = 1;          // A better way to represent these two
     private static final String ALPHABET = "abcdefg";
