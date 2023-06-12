@@ -66,8 +66,8 @@ END METHOD
 
 ### Variable Declarations
 
-**DECLARE** and instantiate the *GameHelper* instance variable, named *helper*.
-**DECLARE** and instantiate the *ArrayList* to hold the list of Startups (initially three). Call it *startups*.
+**DECLARE** and instantiate the *GameHelper* instance variable, named *helper*.  
+**DECLARE** and instantiate the *ArrayList* to hold the list of Startups (initially three). Call it *startups*.  
 **DECLARE** an *int* variable to hold the number of user guesses (so that we can give the user a score at the end of the
 game). Call it **numOfGuesses** and **SET** it to 0
 
@@ -82,7 +82,7 @@ the Startup objects are removed from play.
 **DECLARE** a *checkUserGuess()* method that loops through all remaining Startup objects and calls each Startup object's
 checkYourself() method.
 **DECLARE** a *finishGame()* method that prints a message about the user's performance, based on how many guesses it
-took to sink all of the Startup objects.
+took to sink all the Startup objects.
 
 ---
 
