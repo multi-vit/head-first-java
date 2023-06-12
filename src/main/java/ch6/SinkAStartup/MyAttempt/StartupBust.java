@@ -1,4 +1,4 @@
-package ch6.SinkAStartup;
+package ch6.SinkAStartup.MyAttempt;
 
 import java.util.ArrayList;
 
