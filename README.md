@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                            |------------------------------|----------------|---------------------------|
+                                              |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                          |-----------------|---------------|
+                                            |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -307,3 +307,26 @@ This is basically TDD (Test-Driven Development)!
 - Use the *increment* operator (++) to add 1 to a variable
 - Use the *decrement* operator (--) to subtract 1 from a variable
 - Use *break* to leave a loop early (e.g. even if the boolean test condition is still true)
+
+### Chapter Six - Using the Java Library: Get to Know the Java API
+
+- `ArrayList` is a class in the Java API
+- To put something into an ArrayList, use `add()`
+- To remove something from an ArrayList, use `remove()`
+- To find out where something is (and if it is) in an ArrayList, use `indexOf()`
+- To find out if an ArrayList is empty, use `isEmpty()`
+- To get the size (number of elements) in an ArrayList, use the `size()` *method*
+- To get the **length** (number of elements) in a regular old array, remember, you use the `length` *variable*
+- An ArrayList **resizes dynamically** to whatever size is needed. It grows when objects are added, and it shrinks when
+  objects are removed
+- You declare the type of the array using a **type parameter**, which is a type name in angle brackets. Example:
+    - `ArrayList<Button>` means the ArrayList will be able to hold only objects of type Button (or subclasses of Button
+      as you'll learn in the next couple of chapters)
+- Although an `ArrayList` holds objects and not primitives, the compiler will automatically "wrap" (and "unwrap" when
+  you take it out) a primitive. (More on this feature later in the book)
+- Classes are grouped into packages
+- A class has a full name, which is a combination of the package name and the class name. Class `ArrayList` is
+  really `java.util.ArrayList`
+- To use a class in a package other than `java.lang`, you must tell Java the full name of the class
+- You can either use an import statement at the top of your source code, or you can type the full name every place you
+  use the class in your code
