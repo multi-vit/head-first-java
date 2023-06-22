@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                                              |------------------------------|----------------|---------------------------|
+                                                          |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                                            |-----------------|---------------|
+                                                        |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -303,10 +303,37 @@ This is basically TDD (Test-Driven Development)!
 - A class can have one superclass only
 - Write test code *before* you implement the methods
 - Choose *for* loops over *while* loops when you know how many times you want to repeat the loop code
-- The *enhanced for loop* is an easy way to loop over an array or collection
+- The *enhanced for loop* is an easy way to loop over an array or collection:
+    - Syntax is: `for(<Type> <iterationVariableName> : <arrayName>){<Do stuff>}`. For example:
+    - `for (String name : nameArray) {System.out.print("Hello" + name)}`
 - Use the *increment* operator (++) to add 1 to a variable
 - Use the *decrement* operator (--) to subtract 1 from a variable
 - Use *break* to leave a loop early (e.g. even if the boolean test condition is still true)
+- We *cast* the result of Math.random() to an `int` in this chapter and there are some rules:
+    - You generally shouldn't try and cast a primitive that has a bigger bit count to a smaller one, as you can end up
+      losing bits! e.g. `long`
+      to `int`
+        - If you absolutely have to though, you can tell it what to cast to using `(<typeToCastTo>) <variableName>` like
+          this:
+          ```
+          long y = 42;      // so far so good
+          int x = (int) y;  // x = 42 cool!
+          ```
+        - This tells the compiler to take the value of *y*, chop it down to int size and set *x* equal to whatever is
+          left
+        - If the value of *y* was bigger than the maximum value of *x*, then what's left will be a weird (but
+          calculable) number:
+          ```
+          long y = 40002;       // 40002 exceeds the 16-bit limit of a short
+          short x = (short) y;  // x now equals -25534!
+          ```
+        - The point is that the compiler still lets you do it!
+    - If you have a floating-point number and you just want to get at the whole number (int) part of it:
+      ```
+      float f = 3.14f;
+      int x = (int) f; // x will equal 3
+      ```
+    - And don’t even think about casting anything to a boolean or vice versa—just walk away!
 
 ### Chapter Six - Using the Java Library: Get to Know the Java API
 
