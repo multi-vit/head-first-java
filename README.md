@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                                                          |------------------------------|----------------|---------------------------|
+                                                                                            |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                                                        |-----------------|---------------|
+                                                                                          |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -357,3 +357,34 @@ This is basically TDD (Test-Driven Development)!
 - To use a class in a package other than `java.lang`, you must tell Java the full name of the class
 - You can either use an import statement at the top of your source code, or you can type the full name every place you
   use the class in your code
+
+### Chapter Seven - Better Living in Objectville: Inheritance and Polymorphism
+
+- A subclass *extends* a superclass
+- A subclass inherits all *public* instance variables and methods of the superclass, but does not inherit the *private*
+  instance variables and methods of the superclass
+- Inherited methods can be overridden; instance variables cannot be overridden (although they can be *redefined* in the
+  subclass, but that's not the same thing, and there's almost never a need to do it)
+- Use the **IS-A** test to verify that your inheritance hierarchy is valid. If X extends Y, then *X IS-A Y* must make
+  sense. e.g. Guitar extends Instrument is fine, because a *guitar is a(n) instrument*, but Oven extends Kitchen is not!
+- The **IS-A** relationship works in only one direction. A Hippo is an Animal, but not all Animals are Hippos
+- When a method is overridden in a subclass, and that method is invoked on an instance of the subclass, the overridden
+  version of the method is called (*The lowest one wins*)
+- If class B extends A, and C extends B, class B **IS-A** class A, class C **IS-A** class B, and class C also **IS-A**
+  class A. e.g. Canine (B) extends Animal (A) and Wolf (C) extends Canine (B). So *Canine is an Animal*, *Wolf is a
+  Canine* and *Wolf is an Animal*
+- If you find yourself thinking **HAS-A** is a more appropriate way to describe the relationship between things, then
+  thing on the right side should be an instance variable in the thing on the left. e.g. Tub and Bathroom *are* related,
+  but not through inheritance, as neither one passes the **IS-A** test for the other. However a Bathroom **HAS-A** Tub,
+  so should instantiate a Tub as a variable
+- **DO** use inheritance when one class *is a* more specific type of a superclass. Example: Willow is a more specific
+  type of Tree, so Willow *extends* Tree makes sense
+- **DO** consider inheritance when you have behaviour that should be shared among multiple classes of the same general
+  type. Example: Square, Circle and Triangle all need to rotate and play sound, so putting that functionality in a
+  superclass Shape might make sense for easier maintenance and extensibility
+- **DO NOT** use inheritance just so that you can reuse code from another class, if the relationship between the
+  superclass and subclass violate either of the above two rules. For example, imagine you wrote special printing code in
+  the Animal class, and now you need printing code in the Potato class. You might think about making Potato extend
+  Animal
+  so that Potato inherits the printing code, which makes no sense - a Potato is *not* an Animal! (So the printing code
+  should be in a Printer class that all printable objects can take advantage of via a **HAS-A** relationship)
