@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                                                                                            |------------------------------|----------------|---------------------------|
+                                                                                                |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                                                                                          |-----------------|---------------|
+                                                                                              |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -385,6 +385,5 @@ This is basically TDD (Test-Driven Development)!
 - **DO NOT** use inheritance just so that you can reuse code from another class, if the relationship between the
   superclass and subclass violate either of the above two rules. For example, imagine you wrote special printing code in
   the Animal class, and now you need printing code in the Potato class. You might think about making Potato extend
-  Animal
-  so that Potato inherits the printing code, which makes no sense - a Potato is *not* an Animal! (So the printing code
-  should be in a Printer class that all printable objects can take advantage of via a **HAS-A** relationship)
+  Animal so that Potato inherits the printing code, which makes no sense - a Potato is *not* an Animal! (So the printing
+  code should be in a Printer class that all printable objects can take advantage of via a **HAS-A** relationship)
