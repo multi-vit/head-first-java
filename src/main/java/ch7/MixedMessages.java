@@ -36,6 +36,9 @@ public class MixedMessages {
             C c = new C();
             A a2 = new C();
             // Candidate code goes here (three lines)
+            c.m1();
+            c.m2();
+            c.m3();
         }
     }
 }
@@ -51,7 +54,7 @@ c.m1();
 c.m2();
 c.m3();
 Outputs:
-A's m1, A's m2, C's m3, 13
+B's m1, A's m2, C's m3, 13
 
 a.m1();
 b.m2();
