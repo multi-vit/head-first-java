@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                                                                                                |------------------------------|----------------|---------------------------|
+              |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                                                                                              |-----------------|---------------|
+              |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -328,7 +328,7 @@ This is basically TDD (Test-Driven Development)!
           short x = (short) y;  // x now equals -25534!
           ```
         - The point is that the compiler still lets you do it!
-    - If you have a floating-point number and you just want to get at the whole number (int) part of it:
+    - If you have a floating-point number, and you just want to get at the whole number (int) part of it:
       ```
       float f = 3.14f;
       int x = (int) f; // x will equal 3
@@ -375,9 +375,9 @@ This is basically TDD (Test-Driven Development)!
   Canine* and *Wolf is an Animal*
 - If you find yourself thinking **HAS-A** is a more appropriate way to describe the relationship between things, then
   thing on the right side should be an instance variable in the thing on the left. e.g. Tub and Bathroom *are* related,
-  but not through inheritance, as neither one passes the **IS-A** test for the other. However a Bathroom **HAS-A** Tub,
+  but not through inheritance, as neither one passes the **IS-A** test for the other. However, a Bathroom **HAS-A** Tub,
   so should instantiate a Tub as a variable
-- **DO** use inheritance when one class *is a* more specific type of a superclass. Example: Willow is a more specific
+- **DO** use inheritance when one class *IS-A* more specific type of superclass. Example: Willow is a more specific
   type of Tree, so Willow *extends* Tree makes sense
 - **DO** consider inheritance when you have behaviour that should be shared among multiple classes of the same general
   type. Example: Square, Circle and Triangle all need to rotate and play sound, so putting that functionality in a
@@ -387,3 +387,70 @@ This is basically TDD (Test-Driven Development)!
   the Animal class, and now you need printing code in the Potato class. You might think about making Potato extend
   Animal so that Potato inherits the printing code, which makes no sense - a Potato is *not* an Animal! (So the printing
   code should be in a Printer class that all printable objects can take advantage of via a **HAS-A** relationship)
+
+### Chapter Eight - Serious Polymorphism: Interfaces and Abstract Classes
+
+- When you don't want a class to be instantiated (in other words, you don't want anyone to make a new object of that
+  class type), mark the class with the `abstract` keyword
+- An abstract class can have both abstract and non-abstract methods
+- If a class has even *one* abstract method, the class must be marked abstract
+- An abstract method has no body, and the declaration ends with a semicolon (no curly braces)
+- All abstract methods must be implemented in the first concrete subclass in the inheritance tree
+- Every class in Java is either a direct or indirect subclass of class **Object** (java.lang.Object)
+- Methods can be declared with Object arguments and/or return types
+- You can call methods on an object *only* if the methods are in the class (or interface) used as the *reference*
+  variable type, regardless of the actual *object* type. So, a reference variable of type Object can be used only to
+  call methods defined in class Object, regardless of the type of the object to which the reference refers.
+- When a method is invoked, it will use the object type's implementation of that method
+- A reference variable of type Object can't be assigned to any other reference type without a *cast*. A cast can be used
+  to assign a reference variable of one type to a reference variable of a subtype, but at runtime the cast will fail if
+  the object on the heap is NOT of a type compatible with the cast. Casting is done using `(<Type>)` before the variable
+  being assigned. Example: `Dog d = (Dog) x.getObject(aDog);`
+- All objects come out of an `ArrayList<Object>` as type Object (meaning, they can be referenced only be an Object
+  reference variable, unless you use a *cast*)
+- When you use `ArrayList<Dog>`, the compiler only allows you to put `Dog` objects in so knows it is safe to cast back
+  to `Dog` when retrieving elements, so does it automatically for you! Much safer than casting manually and having it
+  fail at runtime.
+- Multiple inheritance is not allowed in Java, because of the problems associated with the Deadly Diamond of Death. That
+  means you extend only one class (i.e. you can have only one immediate superclass)
+- Create an interface using the `interface` keyword instead of the word `class`
+- Implement an interface using the keyword `implements`. Example: `Dog implements Pet`
+- Your class can implement multiple interfaces
+- A class that implements an interface *must* implement all the methods of the interface, except default and static
+  methods (which we'll see in Chapter 12)
+- To invoke the superclass version of a method from a subclass that's overridden the method, use the `super` keyword,
+  like this: `super.runReport();`.
+  Example:
+  ```java
+  abstract class Report {
+      void runReport() {
+          // set up report
+      }
+      void printReport() {
+          // generic printing
+      }
+  }
+  
+  class BuzzwordsReport extends Report {
+      void runReport() {
+          super.runReport(); // Call the superclass version, then run your own code afterwards
+          buzzwordCompliance();
+          printReport(); // Not overridden so automatically uses superclass version
+      }
+      void buzzwordCompliance() {
+          // Do some validation
+      }
+  }
+  ```
+
+#### Class, subclass, abstract class, or interface?
+
+- Make a **class** that doesn't extend anything (other than Object) when your new class doesn't pass the **IS-A** test
+  for any other type
+- Make a **subclass** (in other words, *extend* a class) only when you need to make a **more specific** version of a
+  class and need to override or add new behaviours
+- Use an **abstract class** when you want to define a **template** for a group of subclasses, and you have at least
+  *some* implementation code that all subclasses could use. Make the class abstract when you want to guarantee that
+  nobody can make objects of that type
+- Use an **interface** when you want to define a **role** that other classes can play, regardless of where those classes
+  are in the inheritance tree
