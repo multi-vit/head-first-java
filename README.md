@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-              |------------------------------|----------------|---------------------------|
+                              |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-              |-----------------|---------------|
+                              |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -454,3 +454,111 @@ This is basically TDD (Test-Driven Development)!
   nobody can make objects of that type
 - Use an **interface** when you want to define a **role** that other classes can play, regardless of where those classes
   are in the inheritance tree
+
+### Life and Death of an Object: Constructors and Garbage Collection
+
+- Java has two areas of memory we care about: the Stack and the Heap
+- Instance variable are variables declared inside a class but outside any method
+  ```java
+  public class Duck {
+      // Every Duck has a "size" instance variable
+      int size;
+  }
+  ```
+- Local variables are variables declared inside a method or method parameter
+  ```
+  public void foo(int x) {
+      int i = x + 3;
+      boolean b = true;
+      // The parameter x and the variables i and b are all local variables
+  }
+  ```
+
+#### Stack
+
+- All **local variables** live on the stack, in the frame corresponding to the method where the variables are declared
+- Object reference variables work just like primitive variables, if the reference is declared as a local variable, it
+  goes on the stack
+
+#### Heap
+
+- All objects live in the heap, regardless of whether the reference is a local or instance variable
+- **Instance variables** live within the object they belong to, on the Heap
+- If the instance variable is a reference to an object, both the reference and the object it refers to are on the Heap
+
+#### Constructors
+
+- A constructor is the code that runs when you say new on a class type: `new Duck();`
+- A constructor must have the same name as the class, and must not have a return type:
+  ```java
+  public class Duck {
+    // Constructor
+    public Duck() { }
+    // The void return type makes this a method, which the compiler will allow, but don't do this!
+    // Methods should start with a lowercase letter by convention
+    public void Duck() { }
+  }
+  ```
+- You can use a constructor to initialize the state (i.e. the instance variables) of the object being constructed
+  ```java
+  public class Duck {
+    int size;
+    public Duck(int size) {
+        this.size = size;
+    }
+  }
+  ```
+- If you don't put a constructor in your class, the compiler will put in a default constructor. The default constructor
+  is always a no-arg constructor: `public Duck() {}`
+- If you put a constructor, **any constructor**, in your class, the compiler will not build the default constructor
+- If you want a no-arg constructor, and you've already put in a constructor with arguments, you'll have to build the
+  no-arg constructor yourself
+- Always provide a no-arg constructor if you can, to make it easy for programmers to make a working object. Supply
+  default values:
+  ```java
+  public class Duck {
+    int size;
+    public Duck() {
+        // no-arg constructor setting a default value
+        this.size = 42;
+    }    
+    public Duck(int size) {
+        this.size = size;
+    }
+  }
+  ```
+- Overloaded constructors means you have more than one constructor in your class:
+  ```java
+    public class Duck {
+    public Duck() {
+    }
+  
+    public Duck(int size) {
+    }
+  
+    public Duck(String name) {
+    }
+  
+    public Duck(
+            String name,
+            int size
+    ) {
+    }
+  }
+  ```
+- Overloaded constructors must have different argument lists
+- You cannot have two constructors with the same argument lists. An argument list includes the order and type of
+  arguments:
+  ```java
+  public class Mushroom {
+      public Mushroom(int size) { }
+      public Mushroom(boolean isMagic) { }
+      // These two have the same args, but in a different order, so it's OK*
+      // *If the arguments were the same type, it wouldn't be OK though
+      // (how would the compiler know they were two different things)
+      public Mushroom(boolean isMagic, int size) { }
+      public Mushroom(int size, boolean isMagic) { }
+  }
+  ```
+- Instance variables are assigned a default value, even when you don't explicitly assign one. The default values are
+  0/0.0/false for primitives, and null for references
