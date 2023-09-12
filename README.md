@@ -56,7 +56,7 @@ A place to document my learning from, and my attempts at the challenges from, th
   otherwise you will get *spillage*
 
   | Type                         | Bit Depth      | Value Range               |
-                              |------------------------------|----------------|---------------------------|
+                                            |------------------------------|----------------|---------------------------|
   | **boolean and char**         |                |                           |
   | Boolean                      | (JVM-Specific) | *true* or *false*         |
   | Char                         | 16 bits        | 0 to 65535                |
@@ -232,7 +232,7 @@ class ElectricGuitar {
   it:
 
   | Type            | Default Value |
-                              |-----------------|---------------|
+                                            |-----------------|---------------|
   | Integers        | 0             |
   | Floating points | 0.0           |
   | Booleans        | false         |
@@ -508,6 +508,7 @@ This is basically TDD (Test-Driven Development)!
     }
   }
   ```
+- Constructors don't have to be `public`. They can be `private`, `protected` or *default* (no access modifier at all)
 - If you don't put a constructor in your class, the compiler will put in a default constructor. The default constructor
   is always a no-arg constructor: `public Duck() {}`
 - If you put a constructor, **any constructor**, in your class, the compiler will not build the default constructor
@@ -560,5 +561,23 @@ This is basically TDD (Test-Driven Development)!
       public Mushroom(int size, boolean isMagic) { }
   }
   ```
-- Instance variables are assigned a default value, even when you don't explicitly assign one. The default values are
-  0/0.0/false for primitives, and null for references
+- Use `this()` to call a constructor from another overloaded constructor in the same class
+- The call to `this()` can be used only in a constructor and must be the **first** statement in a constructor
+- Instance variables are assigned a default value, even when you don't explicitly assign one.
+- The default values are 0/0.0/false for primitives, and null for references
+- So in the `Mushroom` example above, `isMagic` starts as false and `size` as 0 before assignment
+
+#### Superclass Constructors
+
+- All the constructors in an object's inheritance tree must run when you make a new object
+- This means every superclass has a constructor, even abstract classes! (Although they can only be used for superclass
+  construction)
+- If an object extends another, all of its superclasses' constructors get called when it is created, pushed on to the
+  stack so the top of the inheritance tree completes first
+- This is because we need to initialize all the inherited instance variables
+- These inherited instance variables are all stored in the same single object on the heap
+- The only way to call a superclass constructor is by calling `super()`
+- As with no-arg constructors, the compiler puts one in automatically if you don't specify it
+- You can pass in arguments to the super constructor in the usual way: `super(name)`
+- The call to `super()` must be the **first** statement in each constructor
+- **A constructor can have a call to `super()` OR `this()` but never both!**
